@@ -1,4 +1,4 @@
-# Finance-App-Flutter
+# Finance App Flutter
 
 A new Flutter project.
 
