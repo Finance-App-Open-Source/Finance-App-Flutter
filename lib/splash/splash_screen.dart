@@ -1,4 +1,5 @@
 import 'package:finance_app/login_page.dart';
+import 'package:finance_app/utils.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -8,9 +9,9 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   final List<String> images = [
-    'assets/img/splash/run-health.png',
-    'assets/img/splash/locked-security.png',
-    'assets/img/splash/relationship.png'
+    'img/splash/run-health.png',
+    'img/splash/locked-security.png',
+    'img/splash/relationship.png'
   ];
   int currentIndex = 0;
   @override
@@ -23,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Image(
-            image: AssetImage(images[currentIndex]),
+            image: AssetImage(path(images[currentIndex])),
           ),
           Text(
             '''Anim laboris consequat est ipsum qui. Ad mollit nisi labore consectetur et do eiusmod anim aliquip voluptate''',
