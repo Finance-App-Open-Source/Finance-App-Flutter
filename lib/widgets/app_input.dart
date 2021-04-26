@@ -2,10 +2,16 @@ import 'package:flutter/material.dart';
 
 class AppInput extends StatelessWidget {
   final Icon? appendIcon;
+  final Function(String)? onChanged;
   final Icon? suffixIcon;
   final String hinText;
 
-  AppInput({Key? key, required this.hinText, this.appendIcon, this.suffixIcon})
+  AppInput(
+      {Key? key,
+      required this.hinText,
+      this.appendIcon,
+      this.suffixIcon,
+      this.onChanged})
       : super(key: key);
 
   @override
@@ -19,6 +25,7 @@ class AppInput extends StatelessWidget {
         ),
       ),
       child: TextField(
+        onChanged: this.onChanged,
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: this.hinText,
