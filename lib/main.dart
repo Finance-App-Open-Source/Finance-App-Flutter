@@ -1,3 +1,4 @@
+import 'package:finance_app/controllers/global_controller.dart';
 import 'package:finance_app/pages/login_page.dart';
 import 'package:finance_app/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,7 @@ void main() {
 class FinanceApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Get.put(GlobalController());
     return GetMaterialApp(
       title: 'Finance App',
       theme: ThemeData(

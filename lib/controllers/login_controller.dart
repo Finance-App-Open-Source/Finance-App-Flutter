@@ -1,25 +1,27 @@
+import 'package:finance_app/controllers/global_controller.dart';
 import 'package:finance_app/models/User.dart';
+import 'package:finance_app/pages/home_page.dart';
 import 'package:finance_app/services/auth_service.dart';
-import 'package:get/state_manager.dart';
+import 'package:get/get.dart';
 
 class LoginController extends GetxController {
   String _email = "eve.holt@reqres.in";
   String _password = "cityslicka";
-
+  final globalController = Get.find<GlobalController>();
   String get email => _email;
   String get password => _password;
   set email(value) => _email = value;
   set password(value) => _password = value;
 
-  Future<void> login() async {
+  void login() async {
     print("Email: $_email, Password: $_password");
 
     final AuthResponseSuccess? response =
         await AuthService.instance.login(_email, _password);
 
     if (response != null) {
-      print(response.token);
-      print(response.user.toJson());
+      globalController.setAuthInfo(response.user, response.token);
+      Get.to(() => HomePage(), transition: Transition.zoom);
     }
   }
 }

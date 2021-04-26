@@ -4,6 +4,7 @@ class AppInput extends StatelessWidget {
   final Icon? appendIcon;
   final Function(String)? onChanged;
   final Icon? suffixIcon;
+  final String initialValue;
   final String hinText;
 
   AppInput(
@@ -11,6 +12,7 @@ class AppInput extends StatelessWidget {
       required this.hinText,
       this.appendIcon,
       this.suffixIcon,
+      this.initialValue = "",
       this.onChanged})
       : super(key: key);
 
@@ -24,7 +26,8 @@ class AppInput extends StatelessWidget {
           Radius.circular(10.0),
         ),
       ),
-      child: TextField(
+      child: TextFormField(
+        initialValue: this.initialValue,
         onChanged: this.onChanged,
         decoration: InputDecoration(
           border: InputBorder.none,
