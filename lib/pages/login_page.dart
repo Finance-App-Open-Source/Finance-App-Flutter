@@ -1,10 +1,11 @@
 import 'package:finance_app/controllers/login_controller.dart';
 import 'package:finance_app/extensions.dart';
+import 'package:finance_app/pages/register_page.dart';
 import 'package:finance_app/utils.dart';
 import 'package:finance_app/widgets/app_button.dart';
 import 'package:finance_app/widgets/app_input.dart';
 import 'package:flutter/material.dart';
-import 'package:get/state_manager.dart';
+import 'package:get/get.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -97,13 +98,18 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 SizedBox(height: 20.0),
-                Text(
-                  '¿No tienes cuenta?',
-                  style: TextStyle(
-                    color: HexColor.fromHex("790000"),
-                    fontWeight: FontWeight.bold,
+                GestureDetector(
+                  child: Text(
+                    '¿No tienes cuenta?',
+                    style: TextStyle(
+                      color: HexColor.fromHex("790000"),
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.end,
                   ),
-                  textAlign: TextAlign.end,
+                  onTap: () {
+                    Get.to(() => RegisterPage(), transition: Transition.zoom);
+                  },
                 ),
               ])
             ],
