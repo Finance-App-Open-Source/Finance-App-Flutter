@@ -1,5 +1,4 @@
 import 'package:finance_app/controllers/global_controller.dart';
-import 'package:finance_app/pages/login_page.dart';
 import 'package:finance_app/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
