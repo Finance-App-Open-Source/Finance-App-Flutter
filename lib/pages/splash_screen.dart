@@ -31,7 +31,6 @@ class _SplashScreenState extends State<SplashScreen> {
       } else {
         _currentPage = 0;
       }
-
       _pageController.animateToPage(
         _currentPage,
         duration: Duration(milliseconds: 300),

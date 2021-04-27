@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(HistoryTransactions());
-
 class HistoryTransactions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -9,7 +7,12 @@ class HistoryTransactions extends StatelessWidget {
       title: 'Welcome to Flutter',
       home: Scaffold(
         body: Center(
-          child: Text('history transition'),
+          child: Container(
+              padding: EdgeInsets.all(20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [Text('Historial')],
+              )),
         ),
       ),
     );

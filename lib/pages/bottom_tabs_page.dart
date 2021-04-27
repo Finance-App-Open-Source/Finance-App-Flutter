@@ -1,5 +1,6 @@
 import 'package:finance_app/controllers/global_controller.dart';
 import 'package:finance_app/controllers/home_controller.dart';
+import 'package:finance_app/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:finance_app/pages/current_money.dart';
@@ -45,7 +46,7 @@ class _BottomTabsPageState extends State<BottomTabsPage> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.primary,
+        selectedItemColor: FinanceTheme.colors['primary'],
         onTap: (index) {
           setState(() {
             _selectedIndex = index;

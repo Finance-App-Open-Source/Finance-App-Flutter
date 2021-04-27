@@ -21,7 +21,7 @@ class LoginController extends GetxController {
 
     if (response != null) {
       globalController.setAuthInfo(response.user, response.token);
-      Get.to(() => BottomTabsPage(), transition: Transition.zoom);
+      Get.off(() => BottomTabsPage(), transition: Transition.zoom);
     }
   }
 }
