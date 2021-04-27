@@ -1,6 +1,6 @@
 import 'package:finance_app/controllers/global_controller.dart';
 import 'package:finance_app/models/User.dart';
-import 'package:finance_app/pages/home_page.dart';
+import 'package:finance_app/pages/bottom_tabs_page.dart';
 import 'package:finance_app/services/auth_service.dart';
 import 'package:get/get.dart';
 
@@ -21,7 +21,7 @@ class LoginController extends GetxController {
 
     if (response != null) {
       globalController.setAuthInfo(response.user, response.token);
-      Get.to(() => HomePage(), transition: Transition.zoom);
+      Get.to(() => BottomTabsPage(), transition: Transition.zoom);
     }
   }
 }

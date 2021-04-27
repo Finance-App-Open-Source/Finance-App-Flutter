@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(HomePage());
+void main() => runApp(CurrentMoney());
 
-class HomePage extends StatelessWidget {
+class CurrentMoney extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Welcome to Flutter',
       home: Scaffold(
         body: Center(
-          child: Text('home page'),
+          child: Text('current money'),
         ),
       ),
     );
