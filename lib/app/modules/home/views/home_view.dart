@@ -1,13 +1,15 @@
+import 'package:finance_app/app/modules/home/local_widgets/account_card.dart';
 import 'package:finance_app/app/modules/authentication/controllers/authentication_controller.dart';
+import 'package:finance_app/models/Account.dart';
 import 'package:finance_app/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
+  final globalController = Get.find<AuthController>();
   @override
   Widget build(BuildContext context) {
-    final globalController = Get.find<AuthController>();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: FinanceTheme.colors['primary'],
@@ -33,30 +35,20 @@ class HomeView extends GetView<HomeController> {
             ),
             Container(
               padding: EdgeInsets.symmetric(vertical: 5.0),
-              height: MediaQuery.of(context).size.height * 0.30,
+              height: MediaQuery.of(context).size.height * 0.25,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 3,
-                itemBuilder: (context, i) => AccountCard(),
+                itemCount: 10,
+                itemBuilder: (context, i) => AccountCard(
+                  account: Account(
+                    'Efectivo',
+                    'SAVING_ACCOUNT',
+                    10000,
+                  ),
+                ),
               ),
             )
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class AccountCard extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(10.0),
-      width: MediaQuery.of(context).size.width * 0.5,
-      decoration: BoxDecoration(
-        color: Colors.amber,
-        borderRadius: BorderRadius.all(
-          Radius.circular(10.0),
         ),
       ),
     );
