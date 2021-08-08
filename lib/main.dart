@@ -1,5 +1,6 @@
 import 'package:finance_app/controllers/global_controller.dart';
 import 'package:finance_app/pages/splash_screen.dart';
+import 'package:finance_app/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,6 +16,10 @@ class FinanceApp extends StatelessWidget {
       title: 'Finance App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        textTheme: Theme.of(context).textTheme.apply(
+              bodyColor: FinanceTheme.colors['black'],
+              displayColor: FinanceTheme.colors['black'],
+            ),
       ),
       home: SplashScreen(),
     );
