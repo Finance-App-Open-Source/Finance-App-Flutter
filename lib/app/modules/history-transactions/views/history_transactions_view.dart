@@ -102,9 +102,9 @@ class HistoryTransactionsView extends GetView<HistoryTransactionsController> {
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.15),
-            blurRadius: 4,
-            offset: Offset(0, 4),
+            color: Colors.black.withOpacity(0.05),
+            blurRadius: 21,
+            offset: Offset(0, 5),
           ),
         ],
         color: Colors.white,
