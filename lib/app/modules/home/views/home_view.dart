@@ -1,3 +1,4 @@
+import 'package:finance_app/app/modules/authentication/controllers/authentication_controller.dart';
 import 'package:finance_app/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,10 +7,12 @@ import '../controllers/home_controller.dart';
 class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
+    final globalController = Get.find<AuthController>();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: FinanceTheme.colors['primary'],
-        title: Text('HomeView'),
+        title: Text(
+            'Hola ${globalController.me.firstName} ${globalController.me.lastName}!'),
         centerTitle: true,
       ),
       body: Container(

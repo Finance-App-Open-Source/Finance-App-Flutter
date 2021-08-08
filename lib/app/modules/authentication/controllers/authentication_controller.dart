@@ -1,7 +1,7 @@
 import 'package:finance_app/models/User.dart';
 import 'package:get/state_manager.dart';
 
-class GlobalController extends GetxController {
+class AuthController extends GetxController {
   User? _me;
   String _token = "";
 

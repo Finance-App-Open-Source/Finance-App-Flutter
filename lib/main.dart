@@ -1,17 +1,22 @@
+import 'package:finance_app/app/modules/authentication/controllers/authentication_controller.dart';
 import 'package:finance_app/app/routes/app_pages.dart';
-import 'package:finance_app/controllers/global_controller.dart';
 import 'package:finance_app/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 void main() {
+  initialize();
   runApp(FinanceApp());
+}
+
+void initialize() {
+  // inject authentication controller
+  Get.lazyPut(() => AuthController());
 }
 
 class FinanceApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Get.put(GlobalController());
     return GetMaterialApp(
       title: 'Finance App',
       theme: ThemeData(

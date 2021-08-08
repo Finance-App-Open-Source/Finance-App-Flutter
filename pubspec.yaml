@@ -29,6 +29,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: ^4.1.4
   dio:
+  flutter_icons:
+    git:
+      url: git://github.com/jibiel/flutter-icons.git
+      ref: master
 
 dev_dependencies:
   flutter_test:
