@@ -1,16 +1,12 @@
-import 'package:finance_app/controllers/register_controller.dart';
 import 'package:finance_app/extensions.dart';
-import 'package:finance_app/utils.dart';
 import 'package:finance_app/widgets/app_button.dart';
 import 'package:finance_app/widgets/app_input.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../controllers/register_controller.dart';
 
-class RegisterPage extends StatelessWidget {
-  const RegisterPage({Key? key}) : super(key: key);
-
+class RegisterView extends GetView<RegisterController> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<RegisterController>(

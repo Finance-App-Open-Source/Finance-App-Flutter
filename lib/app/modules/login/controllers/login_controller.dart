@@ -1,8 +1,10 @@
+import 'package:finance_app/app/modules/bottom-tabs/views/bottom_tabs_view.dart';
+import 'package:finance_app/app/routes/app_pages.dart';
 import 'package:finance_app/controllers/global_controller.dart';
 import 'package:finance_app/models/User.dart';
-import 'package:finance_app/pages/bottom_tabs_page.dart';
 import 'package:finance_app/services/auth_service.dart';
 import 'package:get/get.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 
 class LoginController extends GetxController {
   String _email = "eve.holt@reqres.in";
@@ -21,7 +23,7 @@ class LoginController extends GetxController {
 
     if (response != null) {
       globalController.setAuthInfo(response.user, response.token);
-      Get.off(() => BottomTabsPage(), transition: Transition.zoom);
+      Get.offAndToNamed(Routes.BOTTOM_TABS);
     }
   }
 }

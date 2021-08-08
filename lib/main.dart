@@ -1,5 +1,5 @@
+import 'package:finance_app/app/routes/app_pages.dart';
 import 'package:finance_app/controllers/global_controller.dart';
-import 'package:finance_app/pages/splash_screen.dart';
 import 'package:finance_app/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -21,7 +21,8 @@ class FinanceApp extends StatelessWidget {
               displayColor: FinanceTheme.colors['black'],
             ),
       ),
-      home: SplashScreen(),
+      getPages: AppPages.routes,
+      initialRoute: AppPages.INITIAL,
     );
   }
 }

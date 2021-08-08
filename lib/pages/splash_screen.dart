@@ -1,6 +1,5 @@
 import 'dart:async';
-
-import 'package:finance_app/pages/login_page.dart';
+import 'package:finance_app/app/routes/app_pages.dart';
 import 'package:finance_app/utils.dart';
 import 'package:finance_app/widgets/app_button.dart';
 import 'package:flutter/material.dart';
@@ -99,7 +98,7 @@ class _SplashScreenState extends State<SplashScreen> {
               onTab: () {
                 setState(() {
                   _timer.cancel();
-                  Get.off(() => LoginPage(), transition: Transition.zoom);
+                  Get.offNamed(Routes.LOGIN);
                 });
               },
             )

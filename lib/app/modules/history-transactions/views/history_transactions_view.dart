@@ -1,8 +1,9 @@
-import 'package:finance_app/extensions.dart';
 import 'package:finance_app/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../controllers/history_transactions_controller.dart';
 
-class HistoryTransactions extends StatelessWidget {
+class HistoryTransactionsView extends GetView<HistoryTransactionsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
