@@ -39,7 +39,7 @@ class CustomSliverAppBar extends StatelessWidget {
               ),
             ),
             Positioned(
-              bottom: 0.0,
+              bottom: -5.0,
               left: 0.0,
               right: 0.0,
               child: Container(
