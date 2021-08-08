@@ -1,5 +1,6 @@
 import 'package:finance_app/app/modules/home/local_widgets/account_card.dart';
 import 'package:finance_app/app/modules/authentication/controllers/authentication_controller.dart';
+import 'package:finance_app/app/modules/home/local_widgets/custom_sliver_app_bar.dart';
 import 'package:finance_app/models/Account.dart';
 import 'package:finance_app/theme.dart';
 import 'package:flutter/material.dart';
@@ -8,17 +9,36 @@ import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
   final globalController = Get.find<AuthController>();
+  final String bgBalanceAppBar = "assets/img/backgrounds/primary-bg.png";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: FinanceTheme.colors['primary'],
-        title: Text(
-            'Hola ${globalController.me.firstName} ${globalController.me.lastName}!'),
-        centerTitle: true,
+      backgroundColor: Colors.white,
+      body: CustomScrollView(
+        slivers: [
+          CustomSliverAppBar(
+            imgUrl: bgBalanceAppBar,
+          ),
+          SliverHomeBody(),
+        ],
       ),
-      body: Container(
-        padding: EdgeInsets.all(10.0),
+    );
+  }
+}
+
+class SliverHomeBody extends StatelessWidget {
+  const SliverHomeBody({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverFillRemaining(
+      child: Container(
+        padding: EdgeInsets.only(left: 20.0, right: 20.0),
+        decoration: BoxDecoration(
+          color: Colors.white,
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
