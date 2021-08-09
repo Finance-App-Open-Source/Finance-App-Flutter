@@ -42,13 +42,24 @@ class SliverHomeBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Lista de cuentas',
-              style: TextStyle(
-                color: FinanceTheme.colors['black'],
-                fontSize: 21,
-                fontWeight: FontWeight.bold,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Lista de cuentas',
+                  style: TextStyle(
+                    color: FinanceTheme.colors['black'],
+                    fontSize: 21,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                IconButton(
+                  icon: Icon(Icons.settings),
+                  onPressed: () {
+                    Get.toNamed('/accounts');
+                  },
+                ),
+              ],
             ),
             SizedBox(
               height: 5.0,

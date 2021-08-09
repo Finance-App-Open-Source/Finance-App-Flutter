@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import 'package:finance_app/app/modules/accounts/bindings/accounts_binding.dart';
+import 'package:finance_app/app/modules/accounts/views/accounts_view.dart';
 import 'package:finance_app/app/modules/bottom-tabs/bindings/bottom_tabs_binding.dart';
 import 'package:finance_app/app/modules/bottom-tabs/views/bottom_tabs_view.dart';
 import 'package:finance_app/app/modules/history-transactions/bindings/history_transactions_binding.dart';
@@ -48,6 +50,11 @@ class AppPages {
       name: _Paths.REGISTER,
       page: () => RegisterView(),
       binding: RegisterBinding(),
+    ),
+    GetPage(
+      name: _Paths.ACCOUNTS,
+      page: () => AccountsView(),
+      binding: AccountsBinding(),
     ),
   ];
 }
