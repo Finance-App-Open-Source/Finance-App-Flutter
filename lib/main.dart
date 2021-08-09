@@ -3,8 +3,10 @@ import 'package:finance_app/app/routes/app_pages.dart';
 import 'package:finance_app/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
-void main() {
+void main() async {
+  await GetStorage.init();
   initialize();
   runApp(FinanceApp());
 }
