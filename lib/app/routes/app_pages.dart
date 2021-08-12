@@ -4,6 +4,8 @@ import 'package:finance_app/app/modules/accounts/bindings/accounts_binding.dart'
 import 'package:finance_app/app/modules/accounts/views/accounts_view.dart';
 import 'package:finance_app/app/modules/bottom-tabs/bindings/bottom_tabs_binding.dart';
 import 'package:finance_app/app/modules/bottom-tabs/views/bottom_tabs_view.dart';
+import 'package:finance_app/app/modules/create-account/bindings/create_account_binding.dart';
+import 'package:finance_app/app/modules/create-account/views/create_account_view.dart';
 import 'package:finance_app/app/modules/history-transactions/bindings/history_transactions_binding.dart';
 import 'package:finance_app/app/modules/history-transactions/views/history_transactions_view.dart';
 import 'package:finance_app/app/modules/home/bindings/home_binding.dart';
@@ -55,6 +57,11 @@ class AppPages {
       name: _Paths.ACCOUNTS,
       page: () => AccountsView(),
       binding: AccountsBinding(),
+    ),
+    GetPage(
+      name: _Paths.CREATE_ACCOUNT,
+      page: () => CreateAccountView(),
+      binding: CreateAccountBinding(),
     ),
   ];
 }

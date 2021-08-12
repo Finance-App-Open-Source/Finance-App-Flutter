@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:finance_app/app/routes/app_pages.dart';
 import 'package:finance_app/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,9 @@ class AccountsView extends GetView<AccountsController> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: FinanceTheme.colors['primary'],
         child: Icon(Icons.add),
-        onPressed: () {},
+        onPressed: () {
+          Get.toNamed(Routes.CREATE_ACCOUNT);
+        },
       ),
       body: Container(
         height: MediaQuery.of(context).size.height,

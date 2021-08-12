@@ -11,6 +11,7 @@ abstract class Routes {
   static const LOGIN = _Paths.LOGIN;
   static const REGISTER = _Paths.REGISTER;
   static const ACCOUNTS = _Paths.ACCOUNTS;
+  static const CREATE_ACCOUNT = _Paths.CREATE_ACCOUNT;
 }
 
 abstract class _Paths {
@@ -21,4 +22,5 @@ abstract class _Paths {
   static const LOGIN = '/login';
   static const REGISTER = '/register';
   static const ACCOUNTS = '/accounts';
+  static const CREATE_ACCOUNT = '/create-account';
 }
