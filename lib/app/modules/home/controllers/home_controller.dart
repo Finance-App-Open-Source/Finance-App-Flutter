@@ -9,8 +9,11 @@ class HomeController extends GetxController {
   @override
   void onReady() {
     super.onReady();
+    print('onReady');
   }
 
   @override
-  void onClose() {}
+  void onClose() {
+    print('onClose');
+  }
 }

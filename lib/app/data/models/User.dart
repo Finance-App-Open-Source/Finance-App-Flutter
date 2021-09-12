@@ -1,30 +1,29 @@
 class User {
-  final int id;
-  final String firstName, lastName, email, avatar;
+  final int? id;
+  final String name, surname, email;
 
-  User(
-      {required this.id,
-      required this.firstName,
-      required this.lastName,
-      required this.email,
-      required this.avatar});
+  User({
+    required this.id,
+    required this.name,
+    required this.surname,
+    required this.email,
+  });
 
   static User fromJson(Map<String, dynamic> json) {
     return new User(
-        id: json['id'],
-        firstName: json['first_name'],
-        lastName: json['last_name'],
-        email: json['email'],
-        avatar: json['avatar']);
+      id: json['id'],
+      name: json['name'],
+      surname: json['surname'],
+      email: json['email'],
+    );
   }
 
   Map<String, dynamic> toJson() {
     return {
       'id': this.id,
-      'first_name': this.firstName,
-      'last_name': this.lastName,
+      'name': this.name,
+      'surname': this.surname,
       'email': this.email,
-      'avatar': this.avatar,
     };
   }
 }

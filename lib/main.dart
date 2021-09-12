@@ -13,7 +13,7 @@ initGraphql() async {
   await initHiveForFlutter();
 
   final HttpLink httpLink = HttpLink(
-    'http://localhost:8000/graphql',
+    'http://localhost:3000/graphql',
   );
 
   ValueNotifier<GraphQLClient> client = ValueNotifier(
@@ -31,18 +31,13 @@ void main() async {
   await GetStorage.init();
   DependencyInjection.init();
   var client = await initGraphql();
-  initialize();
+
   runApp(
     GraphQLProvider(
       client: client,
       child: FinanceApp(),
     ),
   );
-}
-
-void initialize() {
-  // inject authentication controller
-  Get.lazyPut(() => AuthController());
 }
 
 class FinanceApp extends StatelessWidget {
