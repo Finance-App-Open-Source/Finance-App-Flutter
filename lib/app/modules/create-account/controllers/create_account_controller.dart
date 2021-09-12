@@ -1,9 +1,6 @@
 import 'package:get/get.dart';
 
 class CreateAccountController extends GetxController {
-  //TODO: Implement CreateAccountController
-
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
@@ -13,8 +10,4 @@ class CreateAccountController extends GetxController {
   void onReady() {
     super.onReady();
   }
-
-  @override
-  void onClose() {}
-  void increment() => count.value++;
 }

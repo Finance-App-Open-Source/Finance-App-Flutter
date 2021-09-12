@@ -1,5 +1,5 @@
 import 'dart:math';
-import 'package:finance_app/models/Account.dart';
+import 'package:finance_app/app/data/models/Account.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:intl/intl.dart';

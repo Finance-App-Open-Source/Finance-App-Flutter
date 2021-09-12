@@ -1,6 +1,6 @@
-import 'package:finance_app/extensions.dart';
-import 'package:finance_app/widgets/app_button.dart';
-import 'package:finance_app/widgets/app_input.dart';
+import 'package:finance_app/app/global_widgets/app_button.dart';
+import 'package:finance_app/app/global_widgets/app_input.dart';
+import 'package:finance_app/app/core/utils/extensions.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

@@ -1,14 +1,15 @@
 import 'package:finance_app/app/modules/home/local_widgets/account_card.dart';
 import 'package:finance_app/app/modules/authentication/controllers/authentication_controller.dart';
 import 'package:finance_app/app/modules/home/local_widgets/custom_sliver_app_bar.dart';
-import 'package:finance_app/models/Account.dart';
+import 'package:finance_app/app/data/models/Account.dart';
+import 'package:finance_app/app/routes/app_pages.dart';
 import 'package:finance_app/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
-  final globalController = Get.find<AuthController>();
+  // final globalController = Get.find<AuthController>();
   final String bgBalanceAppBar = "assets/img/backgrounds/primary-bg.png";
   @override
   Widget build(BuildContext context) {
@@ -56,7 +57,7 @@ class SliverHomeBody extends StatelessWidget {
                 IconButton(
                   icon: Icon(Icons.settings),
                   onPressed: () {
-                    Get.toNamed('/accounts');
+                    Get.rootDelegate.toNamed(Routes.ACCOUNTS);
                   },
                 ),
               ],
