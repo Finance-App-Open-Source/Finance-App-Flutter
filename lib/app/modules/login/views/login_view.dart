@@ -1,11 +1,13 @@
 import 'package:finance_app/app/core/utils/helpers.dart';
 import 'package:finance_app/app/global_widgets/app_button.dart';
 import 'package:finance_app/app/global_widgets/app_input.dart';
+import 'package:finance_app/app/graphql/mutations.dart';
 import 'package:finance_app/app/routes/app_pages.dart';
 import 'package:finance_app/app/core/utils/extensions.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 
 import '../controllers/login_controller.dart';
 
@@ -77,19 +79,35 @@ class LoginView extends GetView<LoginController> {
               ),
             ),
             Column(children: [
-              AppButton(
-                onTab: () async {
-                  controller.login();
+              Mutation(
+                options: MutationOptions(
+                    document: gql(login),
+                    onCompleted: (dynamic resultData) {
+                      print('On completed!');
+                      print(resultData.toString());
+                      controller.loginCompleted(resultData);
+                    },
+                    onError: (dynamic resultData) {
+                      print('On error!');
+                      print(resultData.toString());
+                      controller.loginOnError(resultData);
+                    }),
+                builder: (runMutation, result) {
+                  return AppButton(
+                    onTab: () async {
+                      controller.login(runMutation);
+                    },
+                    child: Text(
+                      'Ingresar',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        color: Colors.white,
+                        decoration: TextDecoration.none,
+                      ),
+                    ),
+                  );
                 },
-                child: Text(
-                  'Ingresar',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 16.0,
-                    color: Colors.white,
-                    decoration: TextDecoration.none,
-                  ),
-                ),
               ),
               SizedBox(height: 20.0),
               GestureDetector(

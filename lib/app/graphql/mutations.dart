@@ -12,17 +12,18 @@ mutation register(\$registerInput: CreateUserInput!) {
 """;
 
 String login = """
-mutation register(\$loginInput: LoginInput!) {
-  register(
+mutation login(\$loginInput: LoginInput!) {
+  login(
     loginInput: \$loginInput
   ) {
-    accessToken
-    success
     user {
+      id
       name
-      surname
       email
+      surname
     }
+    success
+    accessToken
   }
 }
 
