@@ -14,6 +14,8 @@ import 'package:finance_app/app/modules/login/bindings/login_binding.dart';
 import 'package:finance_app/app/modules/login/views/login_view.dart';
 import 'package:finance_app/app/modules/register/bindings/register_binding.dart';
 import 'package:finance_app/app/modules/register/views/register_view.dart';
+import 'package:finance_app/app/modules/root/bindings/root_binding.dart';
+import 'package:finance_app/app/modules/root/views/root_view.dart';
 import 'package:finance_app/pages/splash_screen.dart';
 
 part 'app_routes.dart';
@@ -25,43 +27,52 @@ class AppPages {
 
   static final routes = [
     GetPage(
-      name: _Paths.SPLASH,
-      page: () => SplashScreen(),
-    ),
-    GetPage(
-      name: _Paths.BOTTOM_TABS,
-      page: () => BottomTabsView(),
-      binding: BottomTabsBinding(),
-    ),
-    GetPage(
-      name: _Paths.HOME,
-      page: () => HomeView(),
-      binding: HomeBinding(),
-    ),
-    GetPage(
-      name: _Paths.HISTORY_TRANSACTIONS,
-      page: () => HistoryTransactionsView(),
-      binding: HistoryTransactionsBinding(),
-    ),
-    GetPage(
-      name: _Paths.LOGIN,
-      page: () => LoginView(),
-      binding: LoginBinding(),
-    ),
-    GetPage(
-      name: _Paths.REGISTER,
-      page: () => RegisterView(),
-      binding: RegisterBinding(),
-    ),
-    GetPage(
-      name: _Paths.ACCOUNTS,
-      page: () => AccountsView(),
-      binding: AccountsBinding(),
-    ),
-    GetPage(
-      name: _Paths.CREATE_ACCOUNT,
-      page: () => CreateAccountView(),
-      binding: CreateAccountBinding(),
+      name: _Paths.ROOT,
+      page: () => RootView(),
+      binding: RootBinding(),
+      participatesInRootNavigator: true,
+      preventDuplicates: true,
+      children: [
+        GetPage(
+          name: _Paths.SPLASH,
+          page: () => SplashScreen(),
+        ),
+        GetPage(
+          name: _Paths.HOME,
+          page: () => HomeView(),
+          binding: HomeBinding(),
+        ),
+        GetPage(
+          name: _Paths.BOTTOM_TABS,
+          page: () => BottomTabsView(),
+          binding: BottomTabsBinding(),
+        ),
+        GetPage(
+          name: _Paths.HISTORY_TRANSACTIONS,
+          page: () => HistoryTransactionsView(),
+          binding: HistoryTransactionsBinding(),
+        ),
+        GetPage(
+          name: _Paths.LOGIN,
+          page: () => LoginView(),
+          binding: LoginBinding(),
+        ),
+        GetPage(
+          name: _Paths.REGISTER,
+          page: () => RegisterView(),
+          binding: RegisterBinding(),
+        ),
+        GetPage(
+          name: _Paths.ACCOUNTS,
+          page: () => AccountsView(),
+          binding: AccountsBinding(),
+        ),
+        GetPage(
+          name: _Paths.CREATE_ACCOUNT,
+          page: () => CreateAccountView(),
+          binding: CreateAccountBinding(),
+        ),
+      ],
     ),
   ];
 }

@@ -1,12 +1,9 @@
 import 'package:dio/dio.dart';
-import 'package:finance_app/models/User.dart';
+import 'package:finance_app/app/data/models/User.dart';
+import 'package:get/instance_manager.dart';
 
-class AuthService {
-  AuthService._internal();
-  static AuthService _instance = AuthService._internal();
-  static AuthService get instance => _instance;
-
-  final Dio _dio = Dio();
+class AuthApi {
+  final Dio _dio = Get.find<Dio>();
 
   Future<AuthResponseSuccess?> login(String email, String password) async {
     try {

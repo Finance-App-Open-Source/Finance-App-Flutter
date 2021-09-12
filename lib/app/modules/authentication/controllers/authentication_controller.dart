@@ -1,4 +1,4 @@
-import 'package:finance_app/models/User.dart';
+import 'package:finance_app/app/data/models/User.dart';
 import 'package:get/state_manager.dart';
 
 class AuthController extends GetxController {

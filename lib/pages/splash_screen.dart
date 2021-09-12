@@ -1,7 +1,7 @@
 import 'dart:async';
+import 'package:finance_app/app/global_widgets/app_button.dart';
 import 'package:finance_app/app/routes/app_pages.dart';
 import 'package:finance_app/utils.dart';
-import 'package:finance_app/widgets/app_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 
@@ -98,7 +98,7 @@ class _SplashScreenState extends State<SplashScreen> {
               onTab: () {
                 setState(() {
                   _timer.cancel();
-                  Get.offNamed(Routes.LOGIN);
+                  Get.rootDelegate.offNamed(Routes.LOGIN);
                 });
               },
             )

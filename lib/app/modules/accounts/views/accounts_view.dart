@@ -21,7 +21,7 @@ class AccountsView extends GetView<AccountsController> {
         backgroundColor: FinanceTheme.colors['primary'],
         child: Icon(Icons.add),
         onPressed: () {
-          Get.toNamed(Routes.CREATE_ACCOUNT);
+          Get.rootDelegate.toNamed(Routes.CREATE_ACCOUNT);
         },
       ),
       body: Container(
