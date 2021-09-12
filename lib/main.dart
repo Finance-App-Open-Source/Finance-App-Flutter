@@ -1,7 +1,7 @@
 import 'package:finance_app/app/core/utils/dependency_injection.dart';
 import 'package:finance_app/app/modules/authentication/controllers/authentication_controller.dart';
 import 'package:finance_app/app/routes/app_pages.dart';
-import 'package:finance_app/theme.dart';
+import 'package:finance_app/app/core/values/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -53,8 +53,8 @@ class FinanceApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         textTheme: Theme.of(context).textTheme.apply(
-              bodyColor: FinanceTheme.colors['black'],
-              displayColor: FinanceTheme.colors['black'],
+              bodyColor: FinanceColors.colors['black'],
+              displayColor: FinanceColors.colors['black'],
             ),
       ),
       defaultTransition: Transition.cupertino,

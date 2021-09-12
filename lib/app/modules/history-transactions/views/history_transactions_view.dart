@@ -1,4 +1,4 @@
-import 'package:finance_app/theme.dart';
+import 'package:finance_app/app/core/values/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/history_transactions_controller.dart';
@@ -46,7 +46,7 @@ class HistoryTransactionsView extends GetView<HistoryTransactionsController> {
                   borderRadius: BorderRadius.all(
                     Radius.circular(100.0),
                   ),
-                  color: FinanceTheme.colors['terciary'],
+                  color: FinanceColors.colors['terciary'],
                 ),
                 child: Icon(
                   Icons.transfer_within_a_station,
@@ -66,7 +66,7 @@ class HistoryTransactionsView extends GetView<HistoryTransactionsController> {
                   Text(
                     'Billetera',
                     style: TextStyle(
-                      color: FinanceTheme.colors['gray'],
+                      color: FinanceColors.colors['gray'],
                     ),
                   )
                 ],
@@ -81,12 +81,12 @@ class HistoryTransactionsView extends GetView<HistoryTransactionsController> {
                 '\$ 10,000',
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: FinanceTheme.colors['success']),
+                    color: FinanceColors.colors['success']),
               ),
               Text(
                 'Billetera',
                 style: TextStyle(
-                  color: FinanceTheme.colors['gray'],
+                  color: FinanceColors.colors['gray'],
                 ),
               )
             ],
@@ -127,12 +127,12 @@ class HistoryTransactionsView extends GetView<HistoryTransactionsController> {
             Text(
               'Esta semana',
               style: TextStyle(
-                color: FinanceTheme.colors['terciary'],
+                color: FinanceColors.colors['terciary'],
               ),
             ),
             Icon(
               Icons.keyboard_arrow_down,
-              color: FinanceTheme.colors['terciary'],
+              color: FinanceColors.colors['terciary'],
             )
           ],
         ),

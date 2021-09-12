@@ -1,4 +1,4 @@
-import 'package:finance_app/theme.dart';
+import 'package:finance_app/app/core/values/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/bottom_tabs_controller.dart';
@@ -27,7 +27,7 @@ class BottomTabsView extends GetView<BottomTabsController> {
             ),
           ],
           currentIndex: controller.selectedIndex.value,
-          selectedItemColor: FinanceTheme.colors['primary'],
+          selectedItemColor: FinanceColors.colors['primary'],
           onTap: controller.onTap,
         ),
       ),

@@ -1,9 +1,8 @@
 import 'package:finance_app/app/modules/home/local_widgets/account_card.dart';
-import 'package:finance_app/app/modules/authentication/controllers/authentication_controller.dart';
 import 'package:finance_app/app/modules/home/local_widgets/custom_sliver_app_bar.dart';
 import 'package:finance_app/app/data/models/Account.dart';
 import 'package:finance_app/app/routes/app_pages.dart';
-import 'package:finance_app/theme.dart';
+import 'package:finance_app/app/core/values/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/home_controller.dart';
@@ -49,7 +48,7 @@ class SliverHomeBody extends StatelessWidget {
                 Text(
                   'Lista de cuentas',
                   style: TextStyle(
-                    color: FinanceTheme.colors['black'],
+                    color: FinanceColors.colors['black'],
                     fontSize: 21,
                     fontWeight: FontWeight.bold,
                   ),

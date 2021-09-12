@@ -1,7 +1,7 @@
 import 'dart:math';
 
+import 'package:finance_app/app/core/values/colors.dart';
 import 'package:finance_app/app/routes/app_pages.dart';
-import 'package:finance_app/theme.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -15,10 +15,10 @@ class AccountsView extends GetView<AccountsController> {
       appBar: AppBar(
         title: Text('Ajustes de cuentas'),
         centerTitle: true,
-        backgroundColor: FinanceTheme.colors['primary'],
+        backgroundColor: FinanceColors.colors['primary'],
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: FinanceTheme.colors['primary'],
+        backgroundColor: FinanceColors.colors['primary'],
         child: Icon(Icons.add),
         onPressed: () {
           Get.rootDelegate.toNamed(Routes.CREATE_ACCOUNT);

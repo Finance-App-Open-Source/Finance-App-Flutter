@@ -1,6 +1,6 @@
 import 'package:finance_app/app/global_widgets/app_button.dart';
 import 'package:finance_app/app/global_widgets/app_input.dart';
-import 'package:finance_app/theme.dart';
+import 'package:finance_app/app/core/values/colors.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -14,7 +14,7 @@ class CreateAccountView extends GetView<CreateAccountController> {
       appBar: AppBar(
         title: Text('Crear cuenta'),
         centerTitle: true,
-        backgroundColor: FinanceTheme.colors['primary'],
+        backgroundColor: FinanceColors.colors['primary'],
       ),
       body: Container(
         padding: EdgeInsets.all(15.0),
