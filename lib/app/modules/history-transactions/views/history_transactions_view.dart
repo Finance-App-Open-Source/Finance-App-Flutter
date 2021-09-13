@@ -1,6 +1,7 @@
 import 'package:finance_app/app/core/values/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:styled_widget/styled_widget.dart';
 import '../controllers/history_transactions_controller.dart';
 
 class HistoryTransactionsView extends GetView<HistoryTransactionsController> {
@@ -22,7 +23,12 @@ class HistoryTransactionsView extends GetView<HistoryTransactionsController> {
                 shrinkWrap: true,
                 itemCount: 10,
                 itemBuilder: (BuildContext context, int index) =>
-                    transactionItem(context),
+                    TransactionItem(
+                  Icons.transfer_within_a_station,
+                  FinanceColors.colors['terciary'] as Color,
+                  'Transferencia',
+                  'Billetera',
+                ),
               ),
             ),
           ],
@@ -153,6 +159,87 @@ class HistoryTransactionsView extends GetView<HistoryTransactionsController> {
           textAlign: TextAlign.center,
         ),
       ],
+    );
+  }
+}
+
+class TransactionItem extends StatefulWidget {
+  final IconData icon;
+  final Color iconBgColor;
+  final String title;
+  final String description;
+  @override
+  State<TransactionItem> createState() => _TransactionItemState();
+
+  TransactionItem(this.icon, this.iconBgColor, this.title, this.description);
+}
+
+class _TransactionItemState extends State<TransactionItem> {
+  bool pressed = false;
+  @override
+  Widget build(BuildContext context) {
+    final settingsItem =
+        ({required Widget child}) => Styled.widget(child: child)
+            .alignment(Alignment.center)
+            .borderRadius(all: 15)
+            .ripple()
+            .backgroundColor(Colors.white, animate: true)
+            .clipRRect(all: 10.0) // clip ripple
+            .borderRadius(all: 25, animate: true)
+            // .elevation(
+            //   pressed ? 0 : 20,
+            //   borderRadius: BorderRadius.circular(25),
+            //   shadowColor: Color(0x30000000),
+            // ) // shadow borderRadius
+            .boxShadow(
+              color: Colors.black.withOpacity(pressed ? 0 : 0.05),
+              blurRadius: 21,
+              offset: Offset(0, 5),
+            )
+            .constrained(height: 80)
+            .padding(vertical: 12) // margin
+            .gestures(
+              onTapChange: (tapStatus) => setState(() => pressed = tapStatus),
+              onTapDown: (details) => print('tapDown'),
+              onTap: () => print('onTap'),
+            )
+            .scale(all: pressed ? 0.95 : 1.0, animate: true)
+            .animate(Duration(milliseconds: 150), Curves.easeOut);
+
+    final Widget icon = Icon(widget.icon, size: 20, color: Colors.white)
+        .padding(all: 12)
+        .decorated(
+          color: widget.iconBgColor,
+          borderRadius: BorderRadius.circular(30),
+        )
+        .padding(left: 15, right: 10);
+    final Widget title = Text(
+      widget.title,
+      style: TextStyle(
+        fontWeight: FontWeight.bold,
+        fontSize: 16,
+      ),
+    ).padding(bottom: 5);
+
+    final Widget description = Text(
+      widget.description,
+      style: TextStyle(
+        color: Colors.black26,
+        fontWeight: FontWeight.bold,
+        fontSize: 12,
+      ),
+    );
+    return settingsItem(
+      child: <Widget>[
+        icon,
+        <Widget>[
+          title,
+          description,
+        ].toColumn(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+        ),
+      ].toRow(),
     );
   }
 }
