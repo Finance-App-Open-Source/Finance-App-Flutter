@@ -15,7 +15,7 @@ class RootView extends GetView<RootController> {
           //   centerTitle: true,
           // ),
           resizeToAvoidBottomInset: false,
-          body: GetRouterOutlet(initialRoute: Routes.HISTORY_TRANSACTIONS),
+          body: GetRouterOutlet(initialRoute: Routes.SPLASH),
         );
       },
     );
