@@ -8,9 +8,9 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
 class LoginController extends GetxController {
-  final AuthRepository _repository = Get.find<AuthRepository>();
-  String _email = "eve.holt@reqres.in";
-  String _password = "cityslicka";
+  String _email = "yhoan.manrique@gmail.com";
+  RxBool isPasswordVisible = false.obs;
+  String _password = "12345678";
   final authController = Get.find<AuthController>();
 
   String get email => _email;

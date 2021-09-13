@@ -3,18 +3,22 @@ import 'package:flutter/material.dart';
 class AppInput extends StatelessWidget {
   final Icon? appendIcon;
   final Function(String)? onChanged;
+  final Function()? suffixIconOnTap;
   final Icon? suffixIcon;
   final String initialValue;
   final String hinText;
+  final bool obscureText;
 
-  AppInput(
-      {Key? key,
-      required this.hinText,
-      this.appendIcon,
-      this.suffixIcon,
-      this.initialValue = "",
-      this.onChanged})
-      : super(key: key);
+  AppInput({
+    Key? key,
+    required this.hinText,
+    this.appendIcon,
+    this.suffixIcon,
+    this.initialValue = "",
+    this.obscureText = false,
+    this.suffixIconOnTap,
+    this.onChanged,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +33,7 @@ class AppInput extends StatelessWidget {
       child: TextFormField(
         initialValue: this.initialValue,
         onChanged: this.onChanged,
+        obscureText: this.obscureText,
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: this.hinText,
@@ -36,9 +41,12 @@ class AppInput extends StatelessWidget {
             fontWeight: FontWeight.bold,
             color: Colors.grey[400],
           ),
-          suffixIcon: Padding(
-            padding: EdgeInsetsDirectional.only(end: 12.0),
-            child: this.suffixIcon,
+          suffixIcon: GestureDetector(
+            onTap: this.suffixIconOnTap,
+            child: Padding(
+              padding: EdgeInsetsDirectional.only(end: 12.0),
+              child: this.suffixIcon,
+            ),
           ),
         ),
       ),

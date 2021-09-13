@@ -58,15 +58,24 @@ class LoginView extends GetView<LoginController> {
                     hinText: 'Correo',
                   ),
                   SizedBox(height: 10.0),
-                  AppInput(
-                    initialValue: controller.password,
-                    hinText: 'Contraseña',
-                    onChanged: (value) {
-                      controller.password = value;
-                    },
-                    suffixIcon: Icon(
-                      Icons.remove_red_eye_rounded,
-                      color: Colors.grey[400],
+                  Obx(
+                    () => AppInput(
+                      initialValue: controller.password,
+                      obscureText: !controller.isPasswordVisible.value,
+                      hinText: 'Contraseña',
+                      onChanged: (value) {
+                        controller.password = value;
+                      },
+                      suffixIconOnTap: () {
+                        controller.isPasswordVisible.value =
+                            !controller.isPasswordVisible.value;
+                      },
+                      suffixIcon: Icon(
+                        !controller.isPasswordVisible.value
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                        color: Colors.grey[400],
+                      ),
                     ),
                   ),
                   SizedBox(height: 10.0),

@@ -113,15 +113,24 @@ class RegisterView extends GetView<RegisterController> {
             hinText: 'Correo',
           ),
           SizedBox(height: 10.0),
-          AppInput(
-            // initialValue: controller.email,
-            onChanged: (value) {
-              controller.password.value = value;
-            },
-            hinText: 'Contraseña',
-            suffixIcon: Icon(
-              Icons.remove_red_eye_rounded,
-              color: Colors.grey[400],
+          Obx(
+            () => AppInput(
+              // initialValue: controller.email,
+              onChanged: (value) {
+                controller.password.value = value;
+              },
+              obscureText: !controller.isPasswordVisible.value,
+              hinText: 'Contraseña',
+              suffixIconOnTap: () {
+                controller.isPasswordVisible.value =
+                    !controller.isPasswordVisible.value;
+              },
+              suffixIcon: Icon(
+                !controller.isPasswordVisible.value
+                    ? Icons.visibility
+                    : Icons.visibility_off,
+                color: Colors.grey[400],
+              ),
             ),
           ),
         ],

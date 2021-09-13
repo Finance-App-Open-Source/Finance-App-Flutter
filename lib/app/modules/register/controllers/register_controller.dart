@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 class RegisterController extends GetxController {
   final authController = Get.find<AuthController>();
   RxBool termsAccepted = false.obs;
+  RxBool isPasswordVisible = false.obs;
 
   RxString name = "".obs;
   RxString email = "".obs;
