@@ -120,7 +120,7 @@ class RegisterView extends GetView<RegisterController> {
                 controller.password.value = value;
               },
               obscureText: !controller.isPasswordVisible.value,
-              hinText: 'Contraseña',
+              hinText: 'Contraseña ',
               suffixIconOnTap: () {
                 controller.isPasswordVisible.value =
                     !controller.isPasswordVisible.value;
