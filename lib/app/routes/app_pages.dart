@@ -1,3 +1,4 @@
+import 'package:finance_app/app/middleware/auth_middleware.dart';
 import 'package:get/get.dart';
 
 import 'package:finance_app/app/modules/accounts/bindings/accounts_binding.dart';
@@ -36,22 +37,38 @@ class AppPages {
         GetPage(
           name: _Paths.SPLASH,
           page: () => SplashScreen(),
+          // middlewares: [
+          //   //only enter this route when not authed
+          //   EnsureNotAuthedMiddleware(),
+          // ],
         ),
         GetPage(
           name: _Paths.LOGIN,
           page: () => LoginView(),
           binding: LoginBinding(),
+          middlewares: [
+            //only enter this route when not authed
+            EnsureNotAuthedMiddleware(),
+          ],
         ),
         GetPage(
           name: _Paths.REGISTER,
           page: () => RegisterView(),
           binding: RegisterBinding(),
+          middlewares: [
+            //only enter this route when not authed
+            EnsureNotAuthedMiddleware(),
+          ],
         ),
         GetPage(
           name: _Paths.HOME_LAYOUT,
           page: () => HomeLayoutView(),
           binding: HomeLayoutBinding(),
           preventDuplicates: true,
+          middlewares: [
+            //only enter this route when authed
+            EnsureAuthMiddleware(),
+          ],
           children: [
             GetPage(
               name: _Paths.HOME,

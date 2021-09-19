@@ -7,6 +7,9 @@ abstract class Routes {
   static const ROOT = _Paths.ROOT;
   static const SPLASH = _Paths.SPLASH;
   static const LOGIN = _Paths.LOGIN;
+  // ignore: non_constant_identifier_names
+  static String LOGIN_THEN(String afterSuccessfulLogin) =>
+      '$LOGIN?then=${Uri.encodeQueryComponent(afterSuccessfulLogin)}';
   static const REGISTER = _Paths.REGISTER;
 
   // HomeLayout

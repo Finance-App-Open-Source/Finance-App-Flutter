@@ -4,6 +4,7 @@ import 'package:finance_app/app/global_widgets/app_button.dart';
 import 'package:finance_app/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
+import 'package:get_storage/get_storage.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -36,6 +37,11 @@ class _SplashScreenState extends State<SplashScreen> {
         curve: Curves.easeIn,
       );
     });
+    // final box = GetStorage();
+    // if (box.read('firstTime') != null && box.read('firstTime') == false) {
+    //   print('Is not first time!');
+    //   Get.rootDelegate.offNamed(Routes.HOME_LAYOUT);
+    // }
   }
 
   @override
@@ -98,7 +104,9 @@ class _SplashScreenState extends State<SplashScreen> {
               onTab: () {
                 setState(() {
                   _timer.cancel();
-                  Get.rootDelegate.offNamed(Routes.LOGIN);
+                  // final box = GetStorage();
+                  // box.write("firstTime", false);
+                  // Get.rootDelegate.offNamed(Routes.LOGIN);
                 });
               },
             )

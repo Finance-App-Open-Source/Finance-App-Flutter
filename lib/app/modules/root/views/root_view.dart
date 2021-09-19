@@ -17,7 +17,9 @@ class RootView extends GetView<RootController> {
             backgroundColor: FinanceColors.colors['primary'],
           ),
           resizeToAvoidBottomInset: false,
-          body: GetRouterOutlet(initialRoute: Routes.SPLASH),
+          body: GetRouterOutlet(
+            initialRoute: Routes.SPLASH,
+          ),
         );
       },
     );
