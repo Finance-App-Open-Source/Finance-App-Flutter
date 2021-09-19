@@ -12,6 +12,7 @@ class RootView extends GetView<RootController> {
         final title = current?.location;
         return Scaffold(
           appBar: AppBar(
+            elevation: 0,
             title: Text(title ?? ''),
             centerTitle: true,
             backgroundColor: FinanceColors.colors['primary'],

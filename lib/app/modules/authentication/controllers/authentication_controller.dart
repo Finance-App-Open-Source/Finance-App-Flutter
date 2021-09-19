@@ -1,4 +1,5 @@
 import 'package:finance_app/app/data/models/User.dart';
+import 'package:finance_app/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -9,6 +10,7 @@ class AuthController extends GetxController {
   User get me => _me!;
   String get token => _token;
   bool get isLoggedIn => _me != null && _me is User;
+  set isLoggedIn(value) => _me = null;
 
   final box = GetStorage();
 
@@ -33,5 +35,12 @@ class AuthController extends GetxController {
     _token = token;
     box.write("accessToken", token);
     box.write("user", user.toJson());
+  }
+
+  void clearStorage() {
+    box.remove("accessToken");
+    box.remove("user");
+    isLoggedIn = false;
+    Get.rootDelegate.offAndToNamed(Routes.LOGIN);
   }
 }

@@ -1,10 +1,12 @@
 import 'package:finance_app/app/core/values/colors.dart';
+import 'package:finance_app/app/modules/authentication/controllers/authentication_controller.dart';
 import 'package:finance_app/app/modules/home_layout/controllers/home_layout_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../routes/app_pages.dart';
 
 class HomeLayoutView extends GetView<HomeLayoutController> {
+  final authController = Get.find<AuthController>();
   @override
   Widget build(BuildContext context) {
     return GetRouterOutlet.builder(
@@ -16,6 +18,19 @@ class HomeLayoutView extends GetView<HomeLayoutController> {
           currentIndex = 1;
         }
         return Scaffold(
+          appBar: AppBar(
+            backgroundColor: FinanceColors.colors['primary'],
+            elevation: 0,
+            actions: [
+              IconButton(
+                icon: const Icon(Icons.exit_to_app_outlined),
+                tooltip: 'Clear Storage',
+                onPressed: () {
+                  authController.clearStorage();
+                },
+              ),
+            ],
+          ),
           body: GetRouterOutlet(
             initialRoute: Routes.HOME,
             // anchorRoute: Routes.HOME,
