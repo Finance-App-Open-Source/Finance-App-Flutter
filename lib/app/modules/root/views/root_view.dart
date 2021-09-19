@@ -18,7 +18,7 @@ class RootView extends GetView<RootController> {
           ),
           resizeToAvoidBottomInset: false,
           body: GetRouterOutlet(
-            initialRoute: Routes.SPLASH,
+            initialRoute: Routes.ONBOARD,
           ),
         );
       },
