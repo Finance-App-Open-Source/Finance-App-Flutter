@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 
+import 'package:finance_app/app/middleware/auth_middleware.dart';
 import 'package:finance_app/app/modules/accounts/bindings/accounts_binding.dart';
 import 'package:finance_app/app/modules/accounts/views/accounts_view.dart';
 import 'package:finance_app/app/modules/create-account/bindings/create_account_binding.dart';
@@ -12,18 +13,19 @@ import 'package:finance_app/app/modules/home_layout/bindings/home_layout_binding
 import 'package:finance_app/app/modules/home_layout/views/home_layout_view.dart';
 import 'package:finance_app/app/modules/login/bindings/login_binding.dart';
 import 'package:finance_app/app/modules/login/views/login_view.dart';
+import 'package:finance_app/app/modules/onboard/bindings/onboard_binding.dart';
+import 'package:finance_app/app/modules/onboard/views/onboard_view.dart';
 import 'package:finance_app/app/modules/register/bindings/register_binding.dart';
 import 'package:finance_app/app/modules/register/views/register_view.dart';
 import 'package:finance_app/app/modules/root/bindings/root_binding.dart';
 import 'package:finance_app/app/modules/root/views/root_view.dart';
-import 'package:finance_app/pages/splash_screen.dart';
 
 part 'app_routes.dart';
 
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.SPLASH;
+  static const INITIAL = Routes.ONBOARD;
 
   static final routes = [
     GetPage(
@@ -34,24 +36,37 @@ class AppPages {
       preventDuplicates: true,
       children: [
         GetPage(
-          name: _Paths.SPLASH,
-          page: () => SplashScreen(),
+          name: _Paths.ONBOARD,
+          page: () => OnboardView(),
+          binding: OnboardBinding(),
         ),
         GetPage(
           name: _Paths.LOGIN,
           page: () => LoginView(),
           binding: LoginBinding(),
+          middlewares: [
+            //only enter this route when not authed
+            EnsureNotAuthedMiddleware(),
+          ],
         ),
         GetPage(
           name: _Paths.REGISTER,
           page: () => RegisterView(),
           binding: RegisterBinding(),
+          middlewares: [
+            //only enter this route when not authed
+            EnsureNotAuthedMiddleware(),
+          ],
         ),
         GetPage(
           name: _Paths.HOME_LAYOUT,
           page: () => HomeLayoutView(),
           binding: HomeLayoutBinding(),
           preventDuplicates: true,
+          middlewares: [
+            //only enter this route when authed
+            EnsureAuthMiddleware(),
+          ],
           children: [
             GetPage(
               name: _Paths.HOME,

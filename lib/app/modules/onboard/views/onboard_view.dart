@@ -1,55 +1,12 @@
-import 'dart:async';
 import 'package:finance_app/app/core/utils/helpers.dart';
 import 'package:finance_app/app/global_widgets/app_button.dart';
-import 'package:finance_app/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
 
-class SplashScreen extends StatefulWidget {
-  @override
-  _SplashScreenState createState() => _SplashScreenState();
-}
+import 'package:get/get.dart';
 
-class _SplashScreenState extends State<SplashScreen> {
-  final List<String> images = [
-    'img/splash/run-health.png',
-    'img/splash/locked-security.png',
-    'img/splash/relationship.png'
-  ];
+import '../controllers/onboard_controller.dart';
 
-  int _currentPage = 0;
-  late Timer _timer;
-  final PageController _pageController = PageController(initialPage: 0);
-
-  @override
-  void initState() {
-    super.initState();
-    _timer = Timer.periodic(Duration(seconds: 5), (Timer timer) {
-      if (_currentPage < 2) {
-        _currentPage++;
-      } else {
-        _currentPage = 0;
-      }
-      _pageController.animateToPage(
-        _currentPage,
-        duration: Duration(milliseconds: 300),
-        curve: Curves.easeIn,
-      );
-    });
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _pageController.dispose();
-  }
-
-  _onPageChanged(int index) {
-    setState(() {
-      _currentPage = index;
-    });
-  }
-
+class OnboardView extends GetView<OnboardController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,15 +19,19 @@ class _SplashScreenState extends State<SplashScreen> {
             Expanded(
               child: PageView.builder(
                 scrollDirection: Axis.horizontal,
-                controller: _pageController,
-                onPageChanged: _onPageChanged,
-                itemCount: images.length,
+                controller: controller.pageController,
+                onPageChanged: controller.onPageChanged,
+                itemCount: controller.images.length,
                 itemBuilder: (ctx, i) => Column(
                   children: [
                     Image(
                       height: 400.0,
                       width: MediaQuery.of(context).size.width * 0.8,
-                      image: AssetImage(path(images[i])),
+                      image: AssetImage(
+                        path(
+                          controller.images[i],
+                        ),
+                      ),
                     ),
                     Text(
                       '''Anim laboris consequat est ipsum qui. Ad mollit nisi labore consectetur et do eiusmod anim aliquip voluptate''',
@@ -96,10 +57,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
               ),
               onTab: () {
-                setState(() {
-                  _timer.cancel();
-                  Get.rootDelegate.offNamed(Routes.LOGIN);
-                });
+                controller.timer.cancel();
               },
             )
           ],
