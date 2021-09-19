@@ -1,4 +1,3 @@
-import 'package:finance_app/app/data/repositories/auth_repository.dart';
 import 'package:finance_app/app/modules/authentication/controllers/authentication_controller.dart';
 import 'package:finance_app/app/routes/app_pages.dart';
 import 'package:finance_app/app/data/models/User.dart';
@@ -65,7 +64,7 @@ class LoginController extends GetxController {
       }
       final user = User.fromJson(response['user']);
       authController.setAuthInfo(user, response['accessToken']);
-      Get.rootDelegate.offAndToNamed(Routes.BOTTOM_TABS);
+      Get.rootDelegate.offAndToNamed(Routes.HOME_LAYOUT);
       Get.snackbar(
         "¡Bienvenido!",
         "Hola!, ${user.name} ${user.surname}",
