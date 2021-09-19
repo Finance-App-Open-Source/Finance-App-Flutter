@@ -22,7 +22,6 @@ class RegisterView extends GetView<RegisterController> {
       body: Container(
         padding: EdgeInsets.all(40.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             //Bienvenido
             Container(
@@ -34,6 +33,7 @@ class RegisterView extends GetView<RegisterController> {
                 ],
               ),
             ),
+            SizedBox(height: 30.0),
             Mutation(
               options: MutationOptions(
                   document: gql(register),
@@ -62,6 +62,20 @@ class RegisterView extends GetView<RegisterController> {
                     ),
                   ),
                 );
+              },
+            ),
+            SizedBox(height: 20.0),
+            GestureDetector(
+              child: Text(
+                '¿Ya tienes cuenta?',
+                style: TextStyle(
+                  color: HexColor.fromHex("790000"),
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.end,
+              ),
+              onTap: () {
+                Get.rootDelegate.popRoute();
               },
             ),
             // Crear cuenta
