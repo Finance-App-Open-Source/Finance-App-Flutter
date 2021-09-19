@@ -1,5 +1,6 @@
 import 'package:finance_app/app/core/utils/helpers.dart';
 import 'package:finance_app/app/global_widgets/app_button.dart';
+import 'package:finance_app/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -57,7 +58,7 @@ class OnboardView extends GetView<OnboardController> {
                 ),
               ),
               onTab: () {
-                controller.timer.cancel();
+                controller.letsBegin();
               },
             )
           ],

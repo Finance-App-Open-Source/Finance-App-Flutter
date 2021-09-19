@@ -52,4 +52,9 @@ class OnboardController extends GetxController {
   void onPageChanged(int index) {
     currentPage = index;
   }
+
+  void letsBegin() {
+    timer.cancel();
+    Get.rootDelegate.offNamed(Routes.LOGIN);
+  }
 }
