@@ -13,7 +13,7 @@ initGraphql() async {
   await initHiveForFlutter();
 
   final HttpLink httpLink = HttpLink(
-    'http://localhost:3000/graphql',
+    'https://finance-nestjs.herokuapp.com/graphql',
   );
 
   ValueNotifier<GraphQLClient> client = ValueNotifier(
