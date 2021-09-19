@@ -15,6 +15,7 @@ class OnboardController extends GetxController {
   int currentPage = 0;
   late Timer timer;
   final PageController pageController = PageController(initialPage: 0);
+  final box = GetStorage();
   @override
   void onInit() {
     super.onInit();
@@ -36,7 +37,7 @@ class OnboardController extends GetxController {
   @override
   void onReady() {
     super.onReady();
-    final box = GetStorage();
+
     if (box.read('firstTime') != null && box.read('firstTime') == false) {
       print('Is not first time!');
       Get.rootDelegate.offNamed(Routes.LOGIN);
@@ -56,5 +57,6 @@ class OnboardController extends GetxController {
   void letsBegin() {
     timer.cancel();
     Get.rootDelegate.offNamed(Routes.LOGIN);
+    box.write('firstTime', false);
   }
 }
