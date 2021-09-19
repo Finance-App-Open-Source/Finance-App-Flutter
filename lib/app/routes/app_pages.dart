@@ -1,3 +1,5 @@
+import 'package:finance_app/app/middleware/force_navigate_to_route_middleware.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:finance_app/app/middleware/auth_middleware.dart';
@@ -34,6 +36,9 @@ class AppPages {
       binding: RootBinding(),
       participatesInRootNavigator: true,
       preventDuplicates: true,
+      middlewares: [
+        ForceNavigateToRouteMiddleware(from: '/', to: '/onboard'),
+      ],
       children: [
         GetPage(
           name: _Paths.ONBOARD,
@@ -92,5 +97,25 @@ class AppPages {
         ),
       ],
     ),
+    GetPage(
+      name: '/404',
+      page: () => NotFoundView(),
+      transition: Transition.fadeIn,
+      transitionDuration: Duration(milliseconds: 300),
+    ),
   ];
+}
+
+class NotFoundView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text('404'),
+        ],
+      ),
+    );
+  }
 }
