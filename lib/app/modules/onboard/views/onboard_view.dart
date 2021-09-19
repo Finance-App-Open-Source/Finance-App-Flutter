@@ -13,10 +13,10 @@ class OnboardView extends GetView<OnboardController> {
     return Scaffold(
       body: Container(
         color: Colors.white,
-        padding: EdgeInsets.all(30.0),
+        padding: EdgeInsets.all(20.0),
         child: Column(
           children: [
-            SizedBox(height: 100.0),
+            SizedBox(height: 20.0),
             Expanded(
               child: PageView.builder(
                 scrollDirection: Axis.horizontal,
