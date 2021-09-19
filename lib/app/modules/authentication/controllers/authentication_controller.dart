@@ -41,6 +41,6 @@ class AuthController extends GetxController {
     box.remove("accessToken");
     box.remove("user");
     isLoggedIn = false;
-    Get.rootDelegate.offAndToNamed(Routes.LOGIN);
+    Get.rootDelegate.offNamed(Routes.LOGIN);
   }
 }

@@ -56,6 +56,6 @@ class RegisterController extends GetxController {
       colorText: Colors.white,
       backgroundColor: Colors.green,
     );
-    Get.rootDelegate.offAndToNamed(Routes.HOME);
+    Get.rootDelegate.offNamed(Routes.HOME);
   }
 }

@@ -64,7 +64,7 @@ class LoginController extends GetxController {
       }
       final user = User.fromJson(response['user']);
       authController.setAuthInfo(user, response['accessToken']);
-      Get.rootDelegate.offAndToNamed(Routes.HOME_LAYOUT);
+      Get.rootDelegate.offNamed(Routes.HOME_LAYOUT);
       Get.snackbar(
         "¡Bienvenido!",
         "Hola!, ${user.name} ${user.surname}",
