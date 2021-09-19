@@ -1,5 +1,4 @@
 import 'package:finance_app/app/core/utils/dependency_injection.dart';
-import 'package:finance_app/app/modules/authentication/controllers/authentication_controller.dart';
 import 'package:finance_app/app/routes/app_pages.dart';
 import 'package:finance_app/app/core/values/colors.dart';
 import 'package:flutter/material.dart';
@@ -53,7 +52,7 @@ class FinanceApp extends StatelessWidget {
               displayColor: FinanceColors.colors['black'],
             ),
       ),
-      defaultTransition: Transition.cupertino,
+      defaultTransition: Transition.size,
       getPages: AppPages.routes,
       builder: EasyLoading.init(),
     );
