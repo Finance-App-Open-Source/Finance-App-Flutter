@@ -3,6 +3,7 @@ import 'package:finance_app/app/modules/authentication/controllers/authenticatio
 import 'package:finance_app/app/routes/app_pages.dart';
 import 'package:finance_app/app/data/models/User.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
@@ -19,6 +20,7 @@ class LoginController extends GetxController {
   set password(value) => _password = value;
 
   void login(runMutation) async {
+    EasyLoading.show(status: 'Cargando...');
     print("Email: $_email, Password: $_password");
 
     runMutation({
@@ -45,6 +47,7 @@ class LoginController extends GetxController {
   }
 
   loginCompleted(resultData) {
+    EasyLoading.dismiss();
     if (resultData != null) {
       final response = resultData['login'];
       if (!response['success']) {

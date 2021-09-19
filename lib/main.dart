@@ -3,6 +3,7 @@ import 'package:finance_app/app/modules/authentication/controllers/authenticatio
 import 'package:finance_app/app/routes/app_pages.dart';
 import 'package:finance_app/app/core/values/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
@@ -54,6 +55,7 @@ class FinanceApp extends StatelessWidget {
       ),
       defaultTransition: Transition.cupertino,
       getPages: AppPages.routes,
+      builder: EasyLoading.init(),
     );
   }
 }
