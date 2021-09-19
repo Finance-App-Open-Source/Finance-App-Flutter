@@ -20,7 +20,7 @@ class RegisterView extends GetView<RegisterController> {
         ),
       ),
       body: Container(
-        padding: EdgeInsets.all(40.0),
+        padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 10.0),
         child: Column(
           children: [
             //Bienvenido
